@@ -1,0 +1,147 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * MEET GERMANY – Markenfarben (Quelle: meet-germany.network)
+ *   Karminrot  #B90845  → Primäraktionen, aktive Navigation (sparsam)
+ *   Pflaume    #6F2659  → Sekundärakzent, Seitenleiste (abgedunkelt)
+ *   Salbei     #ABC788  → positive Zustände (dezent)
+ *   Anthrazit  #333333  → Text
+ */
+:root {
+  --brand-crimson: #b90845;
+  --brand-crimson-dark: #95063a;
+  --brand-plum: #6f2659;
+  --brand-plum-deep: #2a1430;
+  --brand-sage: #abc788;
+
+  --background: #f7f6f4;
+  --foreground: #2b2b2b;
+  --card: #ffffff;
+  --card-foreground: #2b2b2b;
+  --popover: #ffffff;
+  --popover-foreground: #2b2b2b;
+  --primary: var(--brand-crimson);
+  --primary-foreground: #ffffff;
+  --secondary: #f1eef0;
+  --secondary-foreground: #3a2a36;
+  --muted: #f0eeec;
+  --muted-foreground: #66605f;
+  --accent: #f4ecf1;
+  --accent-foreground: #4b1a3c;
+  --destructive: #c4262e;
+  --border: #e4e0dd;
+  --input: #d9d4d0;
+  --ring: #b9084580;
+  --radius: 0.625rem;
+
+  --chart-1: #b90845;
+  --chart-2: #6f2659;
+  --chart-3: #abc788;
+  --chart-4: #d8a24a;
+  --chart-5: #5b7c99;
+
+  --sidebar: var(--brand-plum-deep);
+  --sidebar-foreground: #efe6ec;
+  --sidebar-primary: var(--brand-crimson);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #3d2143;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #3d2443;
+  --sidebar-ring: #b9084580;
+}
+
+@theme inline {
+  --font-heading: var(--font-sans);
+  --font-sans: var(--font-sans);
+  --color-brand-crimson: var(--brand-crimson);
+  --color-brand-plum: var(--brand-plum);
+  --color-brand-sage: var(--brand-sage);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+  html {
+    @apply font-sans;
+  }
+  :focus-visible {
+    outline: 2px solid var(--brand-crimson);
+    outline-offset: 2px;
+  }
+}
+
+/* Redaktioneller Fließtext (Editor & Vorschau) */
+.prose-mg {
+  line-height: 1.7;
+  color: var(--foreground);
+}
+.prose-mg h1 { font-size: 1.75rem; font-weight: 600; margin: 1.25rem 0 0.75rem; line-height: 1.25; }
+.prose-mg h2 { font-size: 1.35rem; font-weight: 600; margin: 1.25rem 0 0.5rem; line-height: 1.3; }
+.prose-mg h3 { font-size: 1.1rem; font-weight: 600; margin: 1rem 0 0.5rem; }
+.prose-mg p { margin: 0.6rem 0; }
+.prose-mg ul { list-style: disc; padding-left: 1.4rem; margin: 0.6rem 0; }
+.prose-mg ol { list-style: decimal; padding-left: 1.4rem; margin: 0.6rem 0; }
+.prose-mg blockquote { border-left: 3px solid var(--brand-plum); padding-left: 1rem; color: var(--muted-foreground); font-style: italic; margin: 1rem 0; }
+.prose-mg a { color: var(--brand-crimson); text-decoration: underline; text-underline-offset: 2px; }
+.prose-mg strong { font-weight: 600; }
+.prose-mg hr { border-color: var(--border); margin: 1.5rem 0; }
+
+.tiptap:focus { outline: none; }
+.tiptap p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  color: var(--muted-foreground);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+@media print {
+  .no-print { display: none !important; }
+  body { background: white; }
+}
